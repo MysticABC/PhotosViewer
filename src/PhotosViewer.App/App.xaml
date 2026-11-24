@@ -1,0 +1,8 @@
+<Application x:Class="PhotosViewer.App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             ShutdownMode="OnMainWindowClose">
+    <Application.Resources>
+        <ResourceDictionary Source="WorkspaceTheme.xaml" />
+    </Application.Resources>
+</Application>

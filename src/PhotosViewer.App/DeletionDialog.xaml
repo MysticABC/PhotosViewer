@@ -1,0 +1,43 @@
+<Window x:Class="PhotosViewer.App.DeletionDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Width="660" Height="385" MinWidth="480" MinHeight="265" ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner" Background="{StaticResource WindowBrush}" Foreground="{StaticResource TextBrush}"
+        FontFamily="Segoe UI, Microsoft YaHei UI" FontSize="13" UseLayoutRounding="True">
+    <Border Padding="18" Background="{StaticResource WindowBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="SummaryText" TextWrapping="Wrap" Margin="0,0,0,12" />
+            <ListBox x:Name="FileList" Grid.Row="1" Background="{StaticResource PanelBrush}" Foreground="{StaticResource TextBrush}"
+                     BorderBrush="{StaticResource LineBrush}" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     ScrollViewer.CanContentScroll="True" VirtualizingPanel.VirtualizationMode="Recycling">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="4,3">
+                            <TextBlock Text="{Binding Path}" TextWrapping="Wrap" />
+                            <TextBlock Text="{Binding Reason}" TextWrapping="Wrap" Margin="0,3,0,0">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource MutedText}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Reason}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,14,0,0">
+                <Button x:Name="CancelAction" Content="取消" Style="{StaticResource PrimaryButton}" IsCancel="True" IsDefault="True" MinWidth="76" />
+                <Button x:Name="ConfirmAction" Margin="8,0,0,0" MinWidth="94" Click="OnConfirm" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
