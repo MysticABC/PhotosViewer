@@ -5,10 +5,12 @@
     <UseWPF>true</UseWPF>
     <PlatformTarget>x64</PlatformTarget>
     <AssemblyName>PhotosViewer</AssemblyName>
+    <ApplicationIcon>Assets/PhotosViewer.ico</ApplicationIcon>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <Resource Include="$(ApplicationIcon)" />
     <ProjectReference Include="../PhotosViewer.Core/PhotosViewer.Core.csproj" />
     <ProjectReference Include="../PhotosViewer.Infrastructure/PhotosViewer.Infrastructure.csproj" />
     <ProjectReference Include="../PhotosViewer.Imaging.Wpf/PhotosViewer.Imaging.Wpf.csproj" />
